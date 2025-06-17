@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres
+    container_name: estufa-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: estufa
+    ports:
+      - '5432:5432'
+    networks:
+      - estufa-net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin-estufa
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - '5050:80'
+    networks:
+      - estufa-net
+
+networks:
+  estufa-net:

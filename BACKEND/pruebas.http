@@ -1,0 +1,2 @@
+### Insertar 5 temperaturas
+POST http://localhost:3000/temperatura/insertar?cantidad=5
