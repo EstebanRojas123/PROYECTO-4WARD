@@ -25,6 +25,7 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setEmail}
         value={email}
         style={styles.input}
+        placeholderTextColor="#666"
       />
       <TextInput
         placeholder="Password"
@@ -32,6 +33,7 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setPassword}
         value={password}
         style={styles.input}
+        placeholderTextColor="#666"
       />
       <Button title="Iniciar sesión" onPress={handleLogin} />
       <Text style={styles.registerText} onPress={() => navigation.navigate("Register")}>
@@ -43,9 +45,12 @@ export default function LoginScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 28,
-    color: "#fff",
-    marginBottom: 20,
+    fontSize: 32,
+    fontWeight: "bold",
+    color: "#ffffff",
+    marginBottom: 30,
+    textAlign: "center",
+    letterSpacing: 1,
   },
   input: {
     width: "100%",
