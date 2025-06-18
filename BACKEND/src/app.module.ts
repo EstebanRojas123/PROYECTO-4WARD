@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, OnApplicationBootstrap } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MqttModule } from './mqtt/mqtt.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -30,4 +30,8 @@ import { User } from './users/user.entity';
   providers: [TemperaturaService],
   controllers: [TemperaturaController],
 })
-export class AppModule {}
+export class AppModule implements OnApplicationBootstrap {
+  onApplicationBootstrap() {
+    console.log('Conexión a la base de datos exitosa!!');
+  }
+}
