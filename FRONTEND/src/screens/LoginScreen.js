@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, Text } from "react-native";
 import { loginUser } from "../services/authService";
+import { Text, TextInput, Button, StyleSheet } from "react-native";
+import ScreenWrapper from "./ScreenWrapper";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -17,19 +18,46 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-    <View>
-      <Text>Login</Text>
-      <TextInput placeholder="Email" onChangeText={setEmail} value={email} />
+    <ScreenWrapper>
+      <Text style={styles.title}>Login</Text>
+      <TextInput
+        placeholder="Email"
+        onChangeText={setEmail}
+        value={email}
+        style={styles.input}
+      />
       <TextInput
         placeholder="Password"
         secureTextEntry
         onChangeText={setPassword}
         value={password}
+        style={styles.input}
       />
       <Button title="Iniciar sesión" onPress={handleLogin} />
-      <Text onPress={() => navigation.navigate("Register")}>
+      <Text style={styles.registerText} onPress={() => navigation.navigate("Register")}>
         ¿No tienes cuenta? Regístrate
       </Text>
-    </View>
+    </ScreenWrapper>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 28,
+    color: "#fff",
+    marginBottom: 20,
+  },
+  input: {
+    width: "100%",
+    backgroundColor: "#fff",
+    marginBottom: 10,
+    padding: 10,
+    borderRadius: 5,
+  },
+  registerText: {
+    color: "#ccc",
+    marginTop: 15,
+    textDecorationLine: "underline",
+  },
+});
+
