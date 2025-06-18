@@ -23,4 +23,9 @@ export class MqttController {
 
     return this.mqttService.sendCommand(body.topic, body.message);
   }
+
+  @Get('/temperatura')
+  getLastTemperature() {
+    return this.mqttService.getLastReading();
+  }
 }

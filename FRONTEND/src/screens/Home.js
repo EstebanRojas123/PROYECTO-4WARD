@@ -1,28 +1,17 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
+import { View, Text, Button, StyleSheet } from "react-native";
 
-export default function Home() {
-  const handlePress = () => {
-    console.log("Botón presionado");
-  };
-
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Panel de Inicio</Text>
-      <Text style={styles.subtitle}>Bienvenido al sistema de control</Text>
+      <Text style={styles.title}>🏠 Pantalla de Inicio</Text>
+      <Text style={styles.subtitle}>¡Bienvenido al sistema de control!</Text>
 
-      <TextInput placeholder="username" style={styles.button} />
-      <TextInput placeholder="password" style={styles.button} />
-
-      <TouchableOpacity style={styles.button}>
-        <text>Registrate aqui!</text>
-      </TouchableOpacity>
+      <Button
+        title="Ir a Login"
+        onPress={() => navigation.navigate("Login")}
+        color="#6200ee"
+      />
     </View>
   );
 }
@@ -30,38 +19,20 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 20,
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    padding: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "bold",
-    color: "#fff",
     marginBottom: 10,
+    color: "#333",
   },
   subtitle: {
     fontSize: 16,
-    color: "black",
-    marginBottom: 40,
+    marginBottom: 30,
+    color: "#555",
   },
-  button: {
-    backgroundColor: "#4caf50",
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 10,
-    textAlign: "center",
-    marginTop: "10px",
-  },
-  buttonText: {
-    color: "black",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-
-  register:{
-    color: 'black',
-  }
-
 });

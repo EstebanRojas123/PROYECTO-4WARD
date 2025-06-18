@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FronMqtt",
-    "slug": "FronMqtt",
+    "name": "FrontMqtt",
+    "slug": "FrontMqtt",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
