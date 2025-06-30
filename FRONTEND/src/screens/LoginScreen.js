@@ -11,7 +11,7 @@ export default function LoginScreen({ navigation }) {
     try {
       const res = await loginUser({ email, password });
       console.log("Login OK:", res);
-      navigation.replace("Home");
+      navigation.replace("Loading");
     } catch (err) {
       console.log("Error al iniciar sesión:", err.message);
     }
@@ -36,7 +36,10 @@ export default function LoginScreen({ navigation }) {
         placeholderTextColor="#666"
       />
       <Button title="Iniciar sesión" onPress={handleLogin} />
-      <Text style={styles.registerText} onPress={() => navigation.navigate("Register")}>
+      <Text
+        style={styles.registerText}
+        onPress={() => navigation.navigate("Register")}
+      >
         ¿No tienes cuenta? Regístrate
       </Text>
     </ScreenWrapper>
@@ -65,4 +68,3 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
 });
-

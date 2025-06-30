@@ -3,9 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, StyleSheet } from "react-native";
 
-import Home from "./src/screens/Home";
 import LoginScreen from "./src/screens/LoginScreen";
 import RegisterScreen from "./src/screens/RegisterScreen";
+import DrawerNavigator from "./DrawerNavigator";
+import LoadingScreen from "./src/screens/LoadingScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,11 +16,12 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Login"
-          screenOptions={{ headerShown: false }} // 👈 oculta header global
+          screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Loading" component={LoadingScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
-          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Main" component={DrawerNavigator} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
@@ -32,4 +34,3 @@ const styles = StyleSheet.create({
     backgroundColor: "#1a1f36",
   },
 });
-
